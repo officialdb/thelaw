@@ -1,12 +1,10 @@
 name: Validate site
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - main
-    paths:
-      - 'lawyer-site-app/**'
-      - '.github/workflows/**'
 
 concurrency:
   group: validate-site-${{ github.event.pull_request.number }}
@@ -22,7 +20,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2

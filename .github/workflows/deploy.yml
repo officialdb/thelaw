@@ -1,12 +1,10 @@
 name: Deploy site
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - 'lawyer-site-app/**'
-      - '.github/workflows/**'
 
 concurrency:
   group: deploy-site-main
@@ -22,7 +20,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
