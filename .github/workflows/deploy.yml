@@ -52,7 +52,7 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp
           local-dir: ./lawyer-site-app/
-          server-dir: /home/ogechih1/lawyer-site-app/
+          server-dir: lawyer-site-app/
           state-name: .ftp-deploy-state-app.json
           exclude: |
             **/.git*
@@ -76,7 +76,7 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp
           local-dir: ./lawyer-site-app/hosting/nnamdinwagwu.com/
-          server-dir: /home/ogechih1/nnamdinwagwu.com/
+          server-dir: nnamdinwagwu.com/
           state-name: .ftp-deploy-state-web.json
           exclude: |
             **/.git*
