@@ -1,0 +1,85 @@
+name: Deploy site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'lawyer-site-app/**'
+      - '.github/workflows/**'
+
+concurrency:
+  group: deploy-site-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: lawyer-site-app
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl, pdo_sqlite, sqlite3, xml, curl, dom, fileinfo, tokenizer, openssl
+          tools: composer:v2
+
+      - name: Install production dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist --no-dev --optimize-autoloader
+
+      - name: Prepare env
+        run: |
+          cp .env.example .env
+          php artisan key:generate --ansi
+
+      - name: Build caches
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      - name: Deploy Laravel app files
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftp
+          local-dir: ./lawyer-site-app/
+          server-dir: /home/ogechih1/lawyer-site-app/
+          state-name: .ftp-deploy-state-app.json
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/hosting/**
+            **/resources/images/**
+            **/storage/**
+            **/tests/**
+            **/public/**
+            **/.env
+            **/.env.*
+            README.md
+
+      - name: Deploy public web root
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftp
+          local-dir: ./lawyer-site-app/hosting/nnamdinwagwu.com/
+          server-dir: /home/ogechih1/nnamdinwagwu.com/
+          state-name: .ftp-deploy-state-web.json
+          exclude: |
+            **/.git*
+            **/.git*/**
