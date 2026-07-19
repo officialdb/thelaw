@@ -33,4 +33,10 @@ foreach ($storagePaths as $path) {
     }
 }
 
+// Auto-create SQLite database file if missing
+$sqlitePath = $app->databasePath().'/database.sqlite';
+if (!file_exists($sqlitePath)) {
+    @touch($sqlitePath);
+}
+
 return $app;
