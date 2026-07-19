@@ -37,12 +37,6 @@ jobs:
           cp .env.example .env
           php artisan key:generate --ansi
 
-      - name: Build caches
-        run: |
-          php artisan config:cache
-          php artisan route:cache
-          php artisan view:cache
-
       - name: Deploy Laravel app files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -60,9 +54,13 @@ jobs:
             **/.github/**
             **/hosting/**
             **/resources/images/**
-            **/storage/**
             **/tests/**
             **/public/**
+            **/bootstrap/cache/*.php
+            **/storage/logs/*.log
+            **/storage/framework/views/*.php
+            **/storage/framework/cache/data/**
+            **/storage/framework/sessions/**
             **/.env
             **/.env.*
             README.md
