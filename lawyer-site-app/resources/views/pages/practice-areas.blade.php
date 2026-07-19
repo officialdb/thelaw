@@ -7,7 +7,7 @@
 <section style="
   position: relative;
   padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 6vw, 60px) 0;
-  background-image: url('{{ asset('images/law_img_3.png') }}');
+  background-image: url('{{ asset('images/law_img_3.jpg') }}');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
