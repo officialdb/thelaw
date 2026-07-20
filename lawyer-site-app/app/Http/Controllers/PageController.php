@@ -11,6 +11,11 @@ class PageController extends Controller
 {
     protected array $practiceAreas = [
         [
+            'title' => 'NGO & International Development',
+            'summary' => 'Comprehensive legal advisory for NGOs, development agencies, and civil society organisations.',
+            'icon' => 'globe',
+        ],
+        [
             'title' => 'Corporate & Commercial Law',
             'summary' => 'Business formation, contracts, and day-to-day legal support for companies and entrepreneurs.',
             'icon' => 'briefcase',
