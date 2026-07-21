@@ -555,7 +555,9 @@
       <a href="{{ route('practice-areas') }}" @if(request()->routeIs('practice-areas')) aria-current="page" @endif>Practice Areas</a>
       <a href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>About</a>
       <a href="{{ route('contact') }}" @if(request()->routeIs('contact')) aria-current="page" @endif>Contact</a>
-      <a class="nav-cta" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener">
+      <a href="{{ route('faq') }}" @if(request()->routeIs('faq')) aria-current="page" @endif>FAQ</a>
+      <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener" style="color:var(--brass-bright);"><i class="fa fa-external-link icon-inline" aria-hidden="true"></i>Main Chambers</a>
+      <a class="nav-cta" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
         Free consultation
       </a>
     </nav>
@@ -573,7 +575,9 @@
           <a href="{{ route('practice-areas') }}" @if(request()->routeIs('practice-areas')) aria-current="page" @endif>Practice Areas</a>
           <a href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>About</a>
           <a href="{{ route('contact') }}" @if(request()->routeIs('contact')) aria-current="page" @endif>Contact</a>
-          <a class="nav-cta" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener">
+          <a href="{{ route('faq') }}" @if(request()->routeIs('faq')) aria-current="page" @endif>FAQ</a>
+          <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener" style="color:var(--brass-bright);"><i class="fa fa-external-link icon-inline" aria-hidden="true"></i>Main Chambers</a>
+          <a class="nav-cta" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
             Free consultation
           </a>
         </nav>
@@ -592,6 +596,7 @@
       <div class="footer-addr">
         <strong>{{ config('site.owner_name') }}</strong><br>
         {{ config('site.owner_role') }}<br>
+        Associate, <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener" style="color:var(--brass-bright);">Chukwunyere Chambers</a><br>
         {{ config('site.address') }}<br>
         {{ config('site.phone_display') }}
       </div>
@@ -599,19 +604,20 @@
         <a href="{{ route('practice-areas') }}">Practice Areas</a>
         <a href="{{ route('about') }}">About</a>
         <a href="{{ route('contact') }}">Contact</a>
-        <a href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener">
+        <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener">Chukwunyere Chambers</a>
+        <a href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
           <i class="fa fa-whatsapp" aria-hidden="true"></i>
           WhatsApp
         </a>
       </div>
     </div>
     <div class="copyline">
-      &copy; {{ date('Y') }} {{ config('site.owner_name') }} &middot; All rights reserved
+      &copy; {{ date('Y') }} {{ config('site.owner_name') }} &middot; Associate at <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener" style="color:var(--brass-bright);">Chukwunyere Chambers</a> &middot; All rights reserved
     </div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa-float" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>
   <span>Chat on WhatsApp</span>
 </a>
@@ -625,16 +631,16 @@
   });
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Counter animation
     const counters = document.querySelectorAll('.counter');
-    if(counters.length === 0) return;
+    if (counters.length === 0) return;
 
     const animateCounters = () => {
       counters.forEach(counter => {
         const updateCount = () => {
           const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText;
-          const inc = target / 150; // Speed
-
+          const count  = +counter.innerText;
+          const inc    = target / 150;
           if (count < target) {
             counter.innerText = Math.ceil(count + inc);
             setTimeout(updateCount, 15);
@@ -648,7 +654,7 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
           animateCounters();
           observer.unobserve(entry.target);
         }
@@ -657,6 +663,34 @@
 
     observer.observe(counters[0].closest('.grid') || counters[0].parentElement);
   });
+
+  // Smooth page exit fade on internal link clicks
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (
+      !link ||
+      link.target === '_blank' ||
+      link.getAttribute('rel')?.includes('noopener') ||
+      !link.href ||
+      link.href.startsWith('mailto:') ||
+      link.href.startsWith('tel:') ||
+      link.href.startsWith('https://wa.me') ||
+      new URL(link.href).origin !== location.origin
+    ) return;
+
+    e.preventDefault();
+    const dest = link.href;
+    document.body.style.transition = 'opacity 0.18s ease';
+    document.body.style.opacity    = '0';
+    setTimeout(() => { location.href = dest; }, 190);
+  });
+
+  // Fade body back in on page show (handles back/forward cache)
+  window.addEventListener('pageshow', () => {
+    document.body.style.transition = 'opacity 0.22s ease';
+    document.body.style.opacity    = '1';
+  });
 </script>
+@stack('scripts')
 </body>
 </html>

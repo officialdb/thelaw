@@ -161,7 +161,7 @@
 
     <div style="margin-top:40px; text-align:center;" data-aos="zoom-in">
       <p style="margin-bottom:20px;">Not sure which category your matter falls under? Send a short message and we'll advise.</p>
-      <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Ask on WhatsApp
       </a>

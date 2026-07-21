@@ -20,18 +20,10 @@
         <p class="eyebrow" style="color:var(--brass-bright);">About</p>
         <h1 style="margin-bottom:24px;">{{ config('site.owner_name') }}</h1>
         <p class="lede" style="text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-          {{-- TODO: replace with his own words - how he'd introduce himself
-               to a prospective client in 2-3 sentences. --}}
-          A practising lawyer in Nigeria, committed to clear communication
-          and dependable representation for individuals and businesses
-          navigating civil, corporate, and property matters.
+          Nnamdi is an Associate with over 14 years of experience, presently part of the corporate commercial group and a key member of the Criminal Defense, Civil Litigation, and Fundamental Rights sub-group.
         </p>
         <p style="text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-          {{-- TODO: replace with real background - firms/chambers worked at,
-               notable (public, non-confidential) experience, approach to
-               client work. --}}
-          [Add background paragraph: prior experience, chambers or firms
-          worked with, and the kind of matters he's built the most depth in.]
+          He has a wealth of experience in general corporate advisory, Labor and Employment, Immigration, as well as general regulatory compliance, including liaison and representation of clients with regulatory authorities. He regularly advises clients on diverse issues ranging from setup of businesses in Nigeria to corporate governance, e-commerce, and general employment matters.
         </p>
       </div>
 
@@ -43,17 +35,23 @@
         <div class="docket-index" style="margin-bottom:4px;">
           <i class="fa fa-gavel icon-inline" aria-hidden="true"></i>Called to the Nigerian Bar
         </div>
-        <p style="margin-bottom:16px;">[Year to confirm]</p>
+        <p style="margin-bottom:16px;">BL – Nigerian Law School, Enugu Campus</p>
 
         <div class="docket-index" style="margin-bottom:4px;">
-          <i class="fa fa-graduation-cap icon-inline" aria-hidden="true"></i>Legal education
+          <i class="fa fa-graduation-cap icon-inline" aria-hidden="true"></i>Legal Education
         </div>
-        <p style="margin-bottom:16px;">[University / Law School to confirm]</p>
+        <p style="margin-bottom:16px;">
+          LL.B – Imo State University, Owerri<br>
+          B.Sc – Public Administration, Imo State University
+        </p>
 
         <div class="docket-index" style="margin-bottom:4px;">
-          <i class="fa fa-balance-scale icon-inline" aria-hidden="true"></i>Court admissions
+          <i class="fa fa-language icon-inline" aria-hidden="true"></i>Languages & Experience
         </div>
-        <p style="margin-bottom:0;">[Confirm any additional court admissions]</p>
+        <p style="margin-bottom:0;">
+          English, Igbo<br>
+          14 Years of Experience
+        </p>
       </div>
     </div>
   </div>
@@ -64,7 +62,7 @@
     <p class="eyebrow">Reach the chambers</p>
     <h2>Discuss your matter directly</h2>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
-      <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Chat on WhatsApp
       </a>

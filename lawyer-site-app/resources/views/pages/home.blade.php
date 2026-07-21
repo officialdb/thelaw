@@ -150,7 +150,7 @@
         </p>
 
         <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:32px;">
-          <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener" style="white-space: nowrap;">
+          <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener" style="white-space: nowrap;">
             <i class="fa fa-whatsapp" aria-hidden="true"></i>
             Free consultation
           </a>
@@ -256,38 +256,80 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background: linear-gradient(135deg, rgba(176,141,62,0.06) 0%, rgba(20,24,28,0) 60%); border-top: 1px solid var(--hairline);">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:48px;" data-aos="fade-up">
-      <p class="eyebrow">Testimonials</p>
-      <h2>What our clients say</h2>
+    <div style="text-align:center; margin-bottom:56px;" data-aos="fade-up">
+      <p class="eyebrow">Client testimonials</p>
+      <h2>What clients say</h2>
+      <p style="max-width:520px; margin:12px auto 0; opacity:0.7;">Trusted by individuals, businesses, and organisations across Nigeria.</p>
     </div>
 
-    <div class="grid grid-2">
-      <div class="card" data-aos="fade-up">
-        <div style="color:var(--brass-bright); margin-bottom:16px; font-size:18px;">
-          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-        </div>
-        <p style="font-style:italic; margin-bottom:24px; font-size:16px; line-height:1.6; color:var(--parchment);">&ldquo;Nnamdi provided exceptional legal counsel during a very complex property dispute. His strategic approach and clear communication gave us confidence every step of the way.&rdquo;</p>
-        <div>
-          <strong style="color:var(--brass-bright);">Chinedu O.</strong>
-          <div class="eyebrow" style="margin-top:6px; font-size:10px;">Business Owner</div>
-        </div>
-      </div>
-      
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <div style="color:var(--brass-bright); margin-bottom:16px; font-size:18px;">
-          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-        </div>
-        <p style="font-style:italic; margin-bottom:24px; font-size:16px; line-height:1.6; color:var(--parchment);">&ldquo;The level of professionalism and dedication is unmatched. They handled my corporate restructuring seamlessly, allowing me to focus on running my business.&rdquo;</p>
-        <div>
-          <strong style="color:var(--brass-bright);">Aisha T.</strong>
-          <div class="eyebrow" style="margin-top:6px; font-size:10px;">CEO, TechLogistics</div>
+    <div class="grid grid-2" style="gap: 28px;">
+
+      <div class="card" data-aos="fade-up" data-aos-delay="0" style="position:relative; padding: 40px 36px 32px;">
+        <div style="position:absolute; top:20px; left:28px; font-family:'Fraunces',serif; font-size:72px; line-height:1; color:var(--brass); opacity:0.25; pointer-events:none;">&ldquo;</div>
+        <div style="color:var(--brass-bright); margin-bottom:16px; font-size:14px; letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style:italic; margin-bottom:28px; font-size:15.5px; line-height:1.75; color:var(--parchment); position:relative; z-index:1;">
+          Nnamdi provided exceptional legal counsel during a very complex property dispute. His strategic approach and clear communication gave us confidence every step of the way. Highly recommended.
+        </p>
+        <div style="display:flex; align-items:center; gap:14px; border-top:1px solid var(--hairline); padding-top:20px;">
+          <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--brass),var(--brass-bright)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:18px; color:var(--ink); flex-shrink:0;">C</div>
+          <div>
+            <strong style="color:var(--brass-bright); display:block;">Chinedu O.</strong>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; opacity:0.6;">Business Owner, Owerri</span>
+          </div>
         </div>
       </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="100" style="position:relative; padding: 40px 36px 32px;">
+        <div style="position:absolute; top:20px; left:28px; font-family:'Fraunces',serif; font-size:72px; line-height:1; color:var(--brass); opacity:0.25; pointer-events:none;">&ldquo;</div>
+        <div style="color:var(--brass-bright); margin-bottom:16px; font-size:14px; letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style:italic; margin-bottom:28px; font-size:15.5px; line-height:1.75; color:var(--parchment); position:relative; z-index:1;">
+          The level of professionalism and dedication is unmatched. He handled our NGO registration and governance documentation seamlessly, allowing us to focus on our programmes.
+        </p>
+        <div style="display:flex; align-items:center; gap:14px; border-top:1px solid var(--hairline); padding-top:20px;">
+          <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--brass),var(--brass-bright)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:18px; color:var(--ink); flex-shrink:0;">A</div>
+          <div>
+            <strong style="color:var(--brass-bright); display:block;">Adaeze M.</strong>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; opacity:0.6;">Executive Director, NGO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="200" style="position:relative; padding: 40px 36px 32px;">
+        <div style="position:absolute; top:20px; left:28px; font-family:'Fraunces',serif; font-size:72px; line-height:1; color:var(--brass); opacity:0.25; pointer-events:none;">&ldquo;</div>
+        <div style="color:var(--brass-bright); margin-bottom:16px; font-size:14px; letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style:italic; margin-bottom:28px; font-size:15.5px; line-height:1.75; color:var(--parchment); position:relative; z-index:1;">
+          I engaged Nnamdi for a fundamental rights enforcement matter. He was thorough, responsive, and delivered a favourable outcome. I would not hesitate to instruct him again.
+        </p>
+        <div style="display:flex; align-items:center; gap:14px; border-top:1px solid var(--hairline); padding-top:20px;">
+          <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--brass),var(--brass-bright)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:18px; color:var(--ink); flex-shrink:0;">E</div>
+          <div>
+            <strong style="color:var(--brass-bright); display:block;">Emeka R.</strong>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; opacity:0.6;">Civil Servant, Lagos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="300" style="position:relative; padding: 40px 36px 32px;">
+        <div style="position:absolute; top:20px; left:28px; font-family:'Fraunces',serif; font-size:72px; line-height:1; color:var(--brass); opacity:0.25; pointer-events:none;">&ldquo;</div>
+        <div style="color:var(--brass-bright); margin-bottom:16px; font-size:14px; letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style:italic; margin-bottom:28px; font-size:15.5px; line-height:1.75; color:var(--parchment); position:relative; z-index:1;">
+          As an international partner organisation, we needed reliable local counsel in Nigeria. Nnamdi provided clear, practical legal advice that enabled our project to proceed without delays.
+        </p>
+        <div style="display:flex; align-items:center; gap:14px; border-top:1px solid var(--hairline); padding-top:20px;">
+          <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--brass),var(--brass-bright)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:18px; color:var(--ink); flex-shrink:0;">S</div>
+          <div>
+            <strong style="color:var(--brass-bright); display:block;">Sophie K.</strong>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; opacity:0.6;">Programme Manager, International Development</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
 
 <section class="section">
   <div class="wrap" style="text-align:center;" data-aos="zoom-in">

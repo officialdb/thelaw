@@ -64,7 +64,7 @@
           correspondence, use the form or email address below.
         </p>
 
-        <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}" target="_blank" rel="noopener" style="margin-bottom:32px; display:inline-flex;">
+        <a class="btn btn-primary" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener" style="margin-bottom:32px; display:inline-flex;">
           <i class="fa fa-whatsapp" aria-hidden="true"></i>
           Message on WhatsApp
         </a>
@@ -124,19 +124,29 @@
 
 <section class="section" style="padding-top:0;">
   <div class="wrap" data-aos="fade-up">
-    <div style="position:relative; border:1px solid var(--hairline); padding:8px; background:rgba(255,255,255,0.02);">
+    <p class="eyebrow" style="margin-bottom:8px;">Find us</p>
+    <h3 style="margin-bottom:20px;">82/84 Wetheral Road, Owerri, Imo State</h3>
+    <div style="position:relative; border:1px solid var(--hairline); overflow:hidden; border-radius:2px;">
       <div class="map-dot"></div>
-      <iframe 
-        src="https://maps.google.com/maps?q=86+Wetheral+Road,+Owerri,+Imo+State,+Nigeria&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-        width="100%" 
-        height="450" 
-        style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
+      <iframe
+        src="https://maps.google.com/maps?q=82+Wetheral+Road,+Owerri,+Imo+State,+Nigeria&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="460"
+        style="border:0; display:block; filter: grayscale(30%) contrast(90%) brightness(80%);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Chukwunyere Chambers location on Google Maps">
       </iframe>
+    </div>
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:16px; font-size:13px; opacity:0.7;">
+      <span><i class="fa fa-map-marker icon-inline" aria-hidden="true"></i>82/84 Wetheral Road, Owerri 460001, Imo State, Nigeria</span>
+      <a href="https://maps.google.com/maps?q=82+Wetheral+Road,+Owerri,+Imo+State,+Nigeria" target="_blank" rel="noopener" style="color:var(--brass-bright); text-decoration:none;">
+        <i class="fa fa-external-link icon-inline" aria-hidden="true"></i>Open in Google Maps
+      </a>
     </div>
   </div>
 </section>
+
 
 @endsection

@@ -64,6 +64,11 @@ class PageController extends Controller
         return view('pages.about');
     }
 
+    public function faq()
+    {
+        return view('pages.faq');
+    }
+
     public function contact()
     {
         return view('pages.contact');
