@@ -21,7 +21,7 @@
     z-index: 10;
   }
 
-  @keyframes map-pulse {
+  @@keyframes map-pulse {
     0% {
       transform: translate(-50%, -50%) scale(0.95);
       box-shadow: 0 0 0 0 rgba(212, 175, 95, 0.7);

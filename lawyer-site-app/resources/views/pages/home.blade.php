@@ -256,6 +256,49 @@
   </div>
 </section>
 
+@if(isset($latestArticles) && $latestArticles->isNotEmpty())
+<section class="section">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:20px;" data-aos="fade-up">
+      <div>
+        <p class="eyebrow">Legal Publications</p>
+        <h2>Latest Articles & Insights</h2>
+      </div>
+      <a href="{{ route('blog.index') }}" class="btn btn-ghost">View All Articles &rarr;</a>
+    </div>
+
+    <div class="grid grid-3" style="gap:28px;">
+      @foreach($latestArticles as $i => $article)
+        <div class="card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}" style="display:flex; flex-direction:column; padding:0; overflow:hidden;">
+          @if($article->image_path)
+            <div style="height:180px; width:100%; overflow:hidden;">
+              <img src="{{ $article->image_path }}" alt="{{ $article->title }}" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+          @endif
+          <div style="padding:24px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="docket-index" style="margin-bottom:8px;">
+                <i class="fa fa-calendar icon-inline"></i>{{ $article->published_at ? $article->published_at->format('M d, Y') : $article->created_at->format('M d, Y') }}
+              </div>
+              <h3 style="font-size:1.15rem; line-height:1.4; margin-bottom:10px;">
+                <a href="{{ route('blog.show', $article->slug) }}" style="color:var(--parchment); text-decoration:none;">{{ $article->title }}</a>
+              </h3>
+              @if($article->excerpt)
+                <p style="font-size:0.9rem; opacity:0.8; line-height:1.5;">{{ Str::limit($article->excerpt, 100) }}</p>
+              @endif
+            </div>
+            <div style="border-top:1px solid var(--hairline); padding-top:14px; margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:0.8rem; opacity:0.6;">By {{ $article->author->name ?? config('site.owner_name') }}</span>
+              <a href="{{ route('blog.show', $article->slug) }}" style="color:var(--brass-bright); font-size:0.8rem; font-family:'IBM Plex Mono',monospace;">Read &rarr;</a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
+
 <section class="section" style="background: linear-gradient(135deg, rgba(176,141,62,0.06) 0%, rgba(20,24,28,0) 60%); border-top: 1px solid var(--hairline);">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:56px;" data-aos="fade-up">

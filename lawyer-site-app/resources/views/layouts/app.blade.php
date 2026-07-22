@@ -3,9 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@yield('title', config('site.owner_name')) &mdash; {{ config('site.owner_role') }}</title>
-<meta name="description" content="@yield('description', config('site.owner_name') . ', ' . config('site.owner_role') . '. Legal representation and advisory services in Nigeria.')">
+<title>@yield('title', config('site.owner_name')) &mdash; {{ config('site.owner_role') }} | Nigeria</title>
+<meta name="description" content="@yield('description', 'Nnamdi Igwebuike Nwagwu is a Barrister & Solicitor in Nigeria associated with Chukwunyere Law Chambers. Expert legal advisory in Corporate Law, NGO Registration, Civil Litigation, and Property Law in Owerri, Imo State.')">
+<meta name="keywords" content="@yield('keywords', 'Nnamdi Nwagwu, Nnamdi Igwebuike Nwagwu, lawyer Owerri, attorney Imo State, Chukwunyere Law Chambers, corporate lawyer Nigeria, NGO registration Nigeria, legal practitioner Owerri, civil litigation lawyer Nigeria, property lawyer Owerri')">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="@yield('canonical', request()->url())">
 <meta name="theme-color" content="#14181c">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="@yield('og_type', 'website')">
+<meta property="og:url" content="{{ request()->url() }}">
+<meta property="og:title" content="@yield('title', config('site.owner_name')) &mdash; {{ config('site.owner_role') }}">
+<meta property="og:description" content="@yield('description', 'Legal advisory and representation by Nnamdi Igwebuike Nwagwu, Barrister & Solicitor at Chukwunyere Law Chambers, Owerri, Nigeria.')">
+<meta property="og:image" content="@yield('og_image', asset('images/law_img.jpg'))">
+<meta property="og:site_name" content="Nnamdi I. Nwagwu &mdash; Barrister & Solicitor">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request()->url() }}">
+<meta name="twitter:title" content="@yield('title', config('site.owner_name')) &mdash; {{ config('site.owner_role') }}">
+<meta name="twitter:description" content="@yield('description', 'Legal advisory and representation by Nnamdi Igwebuike Nwagwu, Barrister & Solicitor at Chukwunyere Law Chambers, Owerri, Nigeria.')">
+<meta name="twitter:image" content="@yield('og_image', asset('images/law_img.jpg'))">
+
+<!-- Structured Data (JSON-LD) for Search Engines -->
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "LegalService",
+  "name": "Nnamdi I. Nwagwu - Barrister & Solicitor",
+  "image": "{{ asset('images/law_img.jpg') }}",
+  "@@id": "https://nnamdinwagwu.com/#legalservice",
+  "url": "https://nnamdinwagwu.com",
+  "telephone": "+2347070157195",
+  "email": "chambers@nnamdinwagwu.com",
+  "priceRange": "$$",
+  "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "82/84 Wetheral Road",
+    "addressLocality": "Owerri",
+    "addressRegion": "Imo State",
+    "postalCode": "460001",
+    "addressCountry": "NG"
+  },
+  "geo": {
+    "@@type": "GeoCoordinates",
+    "latitude": 5.4833,
+    "longitude": 7.0333
+  },
+  "parentOrganization": {
+    "@@type": "LegalService",
+    "name": "Chukwunyere Law Chambers",
+    "url": "https://chukwunyere-chambers.org"
+  },
+  "employee": {
+    "@@type": "Person",
+    "name": "Nnamdi Igwebuike Nwagwu",
+    "jobTitle": "Associate Barrister & Solicitor",
+    "almaMater": ["Imo State University", "Nigerian Law School"],
+    "knowsLanguage": ["English", "Igbo"]
+  },
+  "areaServed": ["Owerri", "Imo State", "Lagos", "Abuja", "Nigeria"],
+  "knowsAbout": [
+    "Corporate & Commercial Law",
+    "NGO & International Development Governance",
+    "Civil Litigation",
+    "Fundamental Rights Enforcement",
+    "Property & Real Estate Law"
+  ]
+}
+</script>
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +90,7 @@
     --brass-bright:#d4af5f;
     --burgundy:#6d2f2f;
     --hairline:#3a3f3a;
-    --max:1080px;
+    --max:1180px;
   }
 
   *{box-sizing:border-box;}
@@ -129,10 +197,10 @@
     margin-left:auto;
     display:flex;
     align-items:center;
-    gap: clamp(14px, 2.4vw, 30px);
+    gap: clamp(10px, 1.4vw, 22px);
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:.1em;
+    font-size:11px;
+    letter-spacing:.06em;
     text-transform:uppercase;
   }
 
@@ -189,10 +257,10 @@
   nav.links{
     display:flex;
     align-items:center;
-    gap: clamp(14px, 2.4vw, 30px);
+    gap: clamp(10px, 1.4vw, 22px);
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:.1em;
+    font-size:11px;
+    letter-spacing:.06em;
     text-transform:uppercase;
   }
 
@@ -200,6 +268,7 @@
     text-decoration:none;
     color: var(--parchment-dim);
     padding: 6px 0;
+    white-space: nowrap;
     border-bottom: 1px solid transparent;
     transition: color 160ms ease, border-color 160ms ease;
   }
@@ -215,20 +284,20 @@
     gap:8px;
     background: var(--brass);
     color: var(--ink) !important;
-    padding: 10px 32px !important;
+    padding: 8px 22px !important;
     border: 1px solid var(--brass);
     border-radius: 50px;
     text-decoration:none !important;
     font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    letter-spacing:.1em;
+    font-size:11px;
+    letter-spacing:.08em;
     text-transform:uppercase;
     transition: background 160ms ease;
     white-space:nowrap;
   }
   .nav-cta:hover{ background: var(--brass-bright); }
 
-  @media (max-width: 720px){
+  @media (max-width: 1040px){
     .site-nav{
       align-items:flex-start;
       padding: 14px 0;
@@ -296,7 +365,7 @@
     }
   }
 
-  @keyframes nav-drop{
+  @@keyframes nav-drop{
     from{
       opacity:0;
       transform: translateY(-6px);
@@ -452,7 +521,8 @@
   .footer-addr strong{ color: var(--parchment); font-weight:500; }
   .footer-links{
     display:flex;
-    gap:22px;
+    flex-wrap:wrap;
+    gap:12px 20px;
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px;
     letter-spacing:.08em;
@@ -471,7 +541,7 @@
     text-align:center;
   }
 
-  @keyframes pulse-wa {
+  @@keyframes pulse-wa {
     0% { transform: scale(1); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
     50% { transform: scale(1.08); box-shadow: 0 12px 32px rgba(212,175,95,.4); }
     100% { transform: scale(1); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
@@ -545,17 +615,18 @@
         <text x="50" y="58" text-anchor="middle" font-family="Fraunces, serif" font-size="28" fill="#d4af5f" font-style="italic">N&middot;I&middot;N</text>
       </svg>
       <span class="btext">
-        Nwagwu Chambers
+        Nnamdi I. Nwagwu
         <small>Barrister &amp; Solicitor</small>
       </span>
     </a>
 
     <nav class="nav-desktop links" aria-label="Primary">
-      <a href="{{ route('home') }}" @if(request()->routeIs('home')) aria-current="page" @endif>Home</a>
-      <a href="{{ route('practice-areas') }}" @if(request()->routeIs('practice-areas')) aria-current="page" @endif>Practice Areas</a>
-      <a href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>About</a>
-      <a href="{{ route('contact') }}" @if(request()->routeIs('contact')) aria-current="page" @endif>Contact</a>
-      <a href="{{ route('faq') }}" @if(request()->routeIs('faq')) aria-current="page" @endif>FAQ</a>
+      <a href="{{ route('home') }}" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
+      <a href="{{ route('practice-areas') }}" {{ request()->routeIs('practice-areas') ? 'aria-current=page' : '' }}>Practice Areas</a>
+      <a href="{{ route('about') }}" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About</a>
+      <a href="{{ route('blog.index') }}" {{ request()->routeIs('blog.*') ? 'aria-current=page' : '' }}>Articles</a>
+      <a href="{{ route('contact') }}" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>
+      <a href="{{ route('faq') }}" {{ request()->routeIs('faq') ? 'aria-current=page' : '' }}>FAQ</a>
       <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener" style="color:var(--brass-bright);"><i class="fa fa-external-link icon-inline" aria-hidden="true"></i>Main Chambers</a>
       <a class="nav-cta" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
         Free consultation
@@ -571,11 +642,12 @@
         </summary>
 
         <nav class="links">
-          <a href="{{ route('home') }}" @if(request()->routeIs('home')) aria-current="page" @endif>Home</a>
-          <a href="{{ route('practice-areas') }}" @if(request()->routeIs('practice-areas')) aria-current="page" @endif>Practice Areas</a>
-          <a href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>About</a>
-          <a href="{{ route('contact') }}" @if(request()->routeIs('contact')) aria-current="page" @endif>Contact</a>
-          <a href="{{ route('faq') }}" @if(request()->routeIs('faq')) aria-current="page" @endif>FAQ</a>
+          <a href="{{ route('home') }}" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
+          <a href="{{ route('practice-areas') }}" {{ request()->routeIs('practice-areas') ? 'aria-current=page' : '' }}>Practice Areas</a>
+          <a href="{{ route('about') }}" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About</a>
+          <a href="{{ route('blog.index') }}" {{ request()->routeIs('blog.*') ? 'aria-current=page' : '' }}>Articles</a>
+          <a href="{{ route('contact') }}" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>
+          <a href="{{ route('faq') }}" {{ request()->routeIs('faq') ? 'aria-current=page' : '' }}>FAQ</a>
           <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener" style="color:var(--brass-bright);"><i class="fa fa-external-link icon-inline" aria-hidden="true"></i>Main Chambers</a>
           <a class="nav-cta" href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">
             Free consultation
@@ -603,6 +675,7 @@
       <div class="footer-links">
         <a href="{{ route('practice-areas') }}">Practice Areas</a>
         <a href="{{ route('about') }}">About</a>
+        <a href="{{ route('blog.index') }}">Articles</a>
         <a href="{{ route('contact') }}">Contact</a>
         <a href="https://chukwunyere-chambers.org" target="_blank" rel="noopener">Chukwunyere Chambers</a>
         <a href="https://wa.me/{{ config('site.whatsapp_number') }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20legal%20services." target="_blank" rel="noopener">

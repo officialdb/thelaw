@@ -14,5 +14,5 @@ return [
     // Update once a real inbox exists
     'email' => env('SITE_EMAIL', 'chambers@nnamdinwagwu.com'),
 
-    'address' => env('SITE_ADDRESS', '86 Wetheral Road, Owerri, Imo State'),
+    'address' => env('SITE_ADDRESS', '82/84 Wetheral Road, Owerri, Imo State, Nigeria'),
 ];

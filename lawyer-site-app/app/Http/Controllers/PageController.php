@@ -47,8 +47,15 @@ class PageController extends Controller
 
     public function home()
     {
+        $latestArticles = \App\Models\Article::published()
+            ->with('author')
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
         return view('pages.home', [
             'practiceAreas' => array_slice($this->practiceAreas, 0, 4),
+            'latestArticles' => $latestArticles,
         ]);
     }
 
@@ -72,6 +79,54 @@ class PageController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function sitemap()
+    {
+        $articles = \App\Models\Article::published()->latest('updated_at')->get();
+
+        $urls = [
+            ['loc' => url('/'), 'priority' => '1.0', 'changefreq' => 'weekly', 'lastmod' => now()->toIso8601String()],
+            ['loc' => route('practice-areas'), 'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => now()->toIso8601String()],
+            ['loc' => route('blog.index'), 'priority' => '0.9', 'changefreq' => 'daily', 'lastmod' => now()->toIso8601String()],
+            ['loc' => route('about'), 'priority' => '0.8', 'changefreq' => 'monthly', 'lastmod' => now()->toIso8601String()],
+            ['loc' => route('contact'), 'priority' => '0.8', 'changefreq' => 'monthly', 'lastmod' => now()->toIso8601String()],
+            ['loc' => route('faq'), 'priority' => '0.7', 'changefreq' => 'monthly', 'lastmod' => now()->toIso8601String()],
+        ];
+
+        foreach ($articles as $article) {
+            $urls[] = [
+                'loc' => route('blog.show', $article->slug),
+                'priority' => '0.8',
+                'changefreq' => 'weekly',
+                'lastmod' => $article->updated_at->toIso8601String(),
+            ];
+        }
+
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        foreach ($urls as $url) {
+            $xml .= '<url>';
+            $xml .= '<loc>' . htmlspecialchars($url['loc']) . '</loc>';
+            $xml .= '<lastmod>' . $url['lastmod'] . '</lastmod>';
+            $xml .= '<changefreq>' . $url['changefreq'] . '</changefreq>';
+            $xml .= '<priority>' . $url['priority'] . '</priority>';
+            $xml .= '</url>';
+        }
+        $xml .= '</urlset>';
+
+        return response($xml, 200, ['Content-Type' => 'application/xml']);
+    }
+
+    public function robots()
+    {
+        $content = "User-agent: *\n";
+        $content .= "Allow: /\n";
+        $content .= "Disallow: /admin/\n";
+        $content .= "Disallow: /admin/*\n\n";
+        $content .= "Sitemap: " . url('/sitemap.xml') . "\n";
+
+        return response($content, 200, ['Content-Type' => 'text/plain']);
     }
 
     public function submitContact(Request $request): RedirectResponse
